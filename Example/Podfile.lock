@@ -1,0 +1,16 @@
+PODS:
+  - YUDialog (0.1.0)
+
+DEPENDENCIES:
+  - YUDialog (from `../`)
+
+EXTERNAL SOURCES:
+  YUDialog:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YUDialog: 3c6ad5851cf98ed1e29694f0481a1f38cdedbd43
+
+PODFILE CHECKSUM: 4f31d854a5376da25933e2e6103883bc92ed2d53
+
+COCOAPODS: 1.2.1

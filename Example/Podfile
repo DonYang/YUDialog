@@ -1,0 +1,6 @@
+source 'https://github.com/DonYang/Specs.git'
+
+target 'Example' do
+  pod "YUDialog", :path => "../"
+end
+
