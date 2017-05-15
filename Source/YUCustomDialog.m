@@ -211,6 +211,8 @@
 
     CGFloat buttonWidth = dialogView.bounds.size.width / _buttons.count;
     NSUInteger idx = 0;
+    CGFloat separatorWidth = 1.0 / [UIScreen mainScreen].scale;
+    
     for (UIButton *btn in _buttons) {
         [btn setFrame:CGRectMake(
                 idx * buttonWidth,
@@ -222,6 +224,13 @@
         [btn setTag:idx];
         [dialogView addSubview:btn];
 
+        if (idx < _buttons.count - 1){
+            UIView *separator = [UIView new];
+            separator.backgroundColor = _dividerColor;
+            [separator setFrame: CGRectMake(((idx+1) * buttonWidth) -1 , dialogView.bounds.size.height - _curButtonHeight, separatorWidth, _curButtonHeight)];
+            [dialogView addSubview: separator];
+        }
+        
         idx++;
     }
 }
