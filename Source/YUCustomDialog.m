@@ -115,7 +115,7 @@
 #endif
     [self addSubview:_dialogView];
 
-    [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
+    [[[[UIApplication sharedApplication] windows] lastObject] addSubview:self];
     [self doDialogShowAnim];
 }
 
