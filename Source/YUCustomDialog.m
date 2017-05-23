@@ -79,6 +79,16 @@
     return self;
 }
 
+- (instancetype)initWithCustomView:(UIView *)customView
+                           leftBtn:(UIButton *)leftBtn
+                          rightBtn:(UIButton *)rightBtn
+                       leftHandler:(void (^)(YUCustomDialog *))leftHandler
+                      rightHandler:(void (^)(YUCustomDialog *))rightHandler {
+    return [[YUCustomDialog alloc] initWithCustomView: customView
+                                              buttons: @[leftBtn, rightBtn]
+                                             handlers: @[leftHandler, rightHandler]];
+}
+
 - (void)show {
 
     [self setFrame:CGRectMake(0, 0, self.screenSize.width, self.screenSize.height)];

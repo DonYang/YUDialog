@@ -4,10 +4,10 @@
 //
 
 #import "YUFlatDialog.h"
+#import "YUDialogBtnHelper.h"
 
 #define FLAT_DIALOG_CONTENT_SIZE CGSizeMake(290, 100)
 #define FLAT_DIALOG_CONTENT_FONT [UIFont systemFontOfSize:14.0f]
-#define FLAT_DIALOG_BUTTON_FONT [UIFont systemFontOfSize:15.0f]
 
 @implementation YUFlatDialog
 
@@ -32,15 +32,25 @@
     NSMutableArray<UIButton *> *buttons = [NSMutableArray arrayWithCapacity:3];
     NSInteger idx = 0;
     for (NSString *btnName in names) {
-        [buttons addObject:[YUFlatDialog createBtn:btnName isDestructive:(idx == destructiveIdx)]];
+        [buttons addObject:[YUDialogBtnHelper createBtn:btnName isDestructive:(idx == destructiveIdx)]];
         idx++;
     }
+    
+    self = [self initWithMsg:msg btns:buttons handlers:handlers contentSize:contentSize];
+    return self;
+}
+
+- (instancetype)initWithMsg:(NSString *)msg
+                       btns:(NSArray <UIButton *> *)btns
+                   handlers:(NSArray<void (^)(YUFlatDialog *)> *)handlers
+                contentSize:(CGSize)contentSize {
+
     if (CGSizeEqualToSize(CGSizeZero, contentSize)) {
         contentSize = FLAT_DIALOG_CONTENT_SIZE;
     }
-    self = [super initWithCustomView:[YUFlatDialog createFlatContentView:msg size:contentSize] buttons:buttons handlers:(NSArray<void (^)(YUCustomDialog *)> *)handlers];
+    self = [super initWithCustomView:[YUFlatDialog createFlatContentView:msg size:contentSize] buttons:btns handlers:(NSArray<void (^)(YUCustomDialog *)> *)handlers];
     if (self) {
-
+        
     }
     return self;
 }
@@ -79,21 +89,6 @@
     }
 
     return flatView;
-}
-
-+ (UIButton *)createBtn:(NSString *)name isDestructive:(BOOL)isDestructive {
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.backgroundColor = UIColor.whiteColor;
-    [btn setTitle:name forState:UIControlStateNormal];
-    if (isDestructive) {
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-    } else {
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    }
-    [btn.titleLabel setFont:FLAT_DIALOG_BUTTON_FONT];
-    return btn;
 }
 
 @end

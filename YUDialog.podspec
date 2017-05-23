@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "YUDialog"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "YUDialog is an iOS dialog utility"
   s.description  = <<-DESC
                    You can use YUDialog to make a your own custom dialog or just use flat dialog.

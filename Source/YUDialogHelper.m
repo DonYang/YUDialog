@@ -58,4 +58,14 @@
     return dialog;
 }
 
++ (YUFlatDialog *)showDialog:(NSString *)msg
+                        btn1:(UIButton *)btn1
+                    handler1:(void (^)(YUFlatDialog *))handler1
+                        btn2:(UIButton *)btn2
+                    handler2:(void (^)(YUFlatDialog *))handler2 {
+    YUFlatDialog *dialog = [[YUFlatDialog alloc] initWithMsg:msg btns:@[btn1, btn2] handlers:@[handler1, handler2] contentSize:CGSizeZero];
+    [dialog show];
+    return dialog;
+}
+
 @end

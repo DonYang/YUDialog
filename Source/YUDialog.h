@@ -13,5 +13,6 @@
 #import "YUFlatDialog.h"
 #import "YUImageDialog.h"
 #import "YUDialogHelper.h"
+#import "YUDialogBtnHelper.h"
 
 #endif /* YUDialog_h */

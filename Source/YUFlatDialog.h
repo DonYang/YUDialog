@@ -23,4 +23,9 @@
                 contentSize:(CGSize)contentSize
           destructiveBtnIdx:(NSInteger)btnIdx;
 
+- (instancetype)initWithMsg:(NSString *)msg
+                       btns:(NSArray <UIButton *> *)btns
+                   handlers:(NSArray<void (^)(YUFlatDialog *)> *)handlers
+                contentSize:(CGSize)contentSize;
+
 @end

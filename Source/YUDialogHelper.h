@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "YUFlatDialog.h"
 
-@interface YUDialogHelper : UIView
+@interface YUDialogHelper : NSObject
 
 + (void)alertImage:(UIImage *)image;
 
@@ -25,12 +25,18 @@
    rightHandler:(void (^)(YUFlatDialog *))rightHandler;
 
 + (YUFlatDialog *)showDialog:(NSString *)msg
-              btns:(NSArray <NSString*> *)btns
-          handlers:(NSArray <void (^)(YUFlatDialog *)>*)handlers;
+                        btns:(NSArray <NSString*> *)btns
+                    handlers:(NSArray <void (^)(YUFlatDialog *)>*)handlers;
 
 + (YUFlatDialog *)showDialog:(NSString *)msg
-              btns:(NSArray <NSString*> *)btns
-          handlers:(NSArray <void (^)(YUFlatDialog *)>*)handlers
-    destructiveIdx:(NSInteger)destructiveIdx;
+                        btns:(NSArray <NSString*> *)btns
+                    handlers:(NSArray <void (^)(YUFlatDialog *)>*)handlers
+              destructiveIdx:(NSInteger)destructiveIdx;
+
++ (YUFlatDialog *)showDialog:(NSString *)msg
+                        btn1:(UIButton *)btn1
+                    handler1:(void (^)(YUFlatDialog *))handler1
+                        btn2:(UIButton *)btn2
+                    handler2:(void (^)(YUFlatDialog *))handler2;
 
 @end

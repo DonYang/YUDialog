@@ -28,6 +28,12 @@
                            buttons:(NSArray<UIButton *> *)buttons
                           handlers:(NSArray<void (^)(YUCustomDialog *)> *)handlers;
 
+- (instancetype)initWithCustomView:(UIView *)customView
+                           leftBtn:(UIButton *)leftBtn
+                          rightBtn:(UIButton *)rightBtn
+                       leftHandler:(void (^)(YUCustomDialog *))leftHandler
+                      rightHandler:(void (^)(YUCustomDialog *))rightHandler;
+
 - (void)show;
 
 - (void)dismiss;
