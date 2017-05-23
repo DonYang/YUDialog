@@ -8,6 +8,8 @@
 
 @interface YUDialogHelper : UIView
 
++ (void)alertImage:(UIImage *)image;
+
 + (void)alertMsg:(NSString *)msg;
 
 + (void)alertMsg:(NSString *)msg handler:(void (^)(YUFlatDialog *))handler;

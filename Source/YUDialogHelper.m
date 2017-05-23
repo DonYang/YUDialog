@@ -4,8 +4,14 @@
 //
 
 #import "YUDialogHelper.h"
+#import "YUImageDialog.h"
 
 @implementation YUDialogHelper
+
++ (void)alertImage:(UIImage *)image {
+    YUImageDialog *dialog = [[YUImageDialog alloc] initWithImage:image];
+    [dialog show];
+}
 
 + (void)alertMsg:(NSString *)msg {
     [self alertMsg:msg handler:^(YUFlatDialog *dialog) {

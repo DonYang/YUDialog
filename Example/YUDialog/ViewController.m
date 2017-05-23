@@ -59,6 +59,16 @@
     [longTextDialog.layer setBorderWidth:0];
     [longTextDialog.layer setCornerRadius:5];
     [self.view addSubview:longTextDialog];
+    
+    UIButton *imageDialog = [UIButton buttonWithType:UIButtonTypeCustom];
+    [imageDialog setFrame:CGRectMake(10, 310, self.view.bounds.size.width - 20, 50)];
+    [imageDialog addTarget:self action:@selector(imageDialog:) forControlEvents:UIControlEventTouchDown];
+    [imageDialog setTitle:@"Image Dialog" forState:UIControlStateNormal];
+    [imageDialog setBackgroundColor:[UIColor whiteColor]];
+    [imageDialog setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [imageDialog.layer setBorderWidth:0];
+    [imageDialog.layer setCornerRadius:5];
+    [self.view addSubview:imageDialog];
 }
 
 - (IBAction)msgDialog:(id)sender {
@@ -84,5 +94,10 @@
      "Flat DialogHello, Flat DialogHello, Flat DialogFlat DialogHello, Flat DialogHello, Flat Dialog"
      "Flat DialogHello, Flat DialogHello, Flat DialogFlat DialogHello, Flat DialogHello, Flat Dialog"];
 }
+
+- (IBAction)imageDialog:(id)sender {
+    [YUDialogHelper alertImage: [UIImage imageNamed: @"google"]];
+}
+
 @end
 
